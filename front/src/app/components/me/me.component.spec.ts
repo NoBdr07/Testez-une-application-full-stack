@@ -1,17 +1,21 @@
 import { HttpClientModule } from '@angular/common/http';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SessionService } from 'src/app/services/session.service';
+import { expect } from '@jest/globals';
+import { of } from 'rxjs';
+import { spyOn } from 'jest-mock';
 
 import { MeComponent } from './me.component';
+import { UserService } from 'src/app/services/user.service';
 
 describe('MeComponent', () => {
   let component: MeComponent;
-  let fixture: ComponentFixture<MeComponent>;
+  let fixture: ComponentFixture<MeComponent>;  
 
   const mockSessionService = {
     sessionInformation: {
@@ -20,6 +24,7 @@ describe('MeComponent', () => {
     }
   }
   beforeEach(async () => {
+
     await TestBed.configureTestingModule({
       declarations: [MeComponent],
       imports: [
@@ -42,4 +47,6 @@ describe('MeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });
+
