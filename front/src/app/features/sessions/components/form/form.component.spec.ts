@@ -56,4 +56,15 @@ describe('FormComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should not display submit if one input in missing or wrong', () => {
+    const compiled = fixture.nativeElement;
+    //rempli les champs du formulaire
+    component.sessionForm?.controls['name'].setValue('test');
+    component.sessionForm?.controls['teacher_id'].setValue([]);
+    component.sessionForm?.controls['date'].setValue('2021-12-12');
+    component.sessionForm?.controls['description'].setValue('description example');
+
+    expect(compiled.querySelector('#submitButton').disabled).toBeTruthy();
+  })
 });

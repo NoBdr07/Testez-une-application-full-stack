@@ -80,20 +80,13 @@ describe('RegisterComponent', () => {
     expect(registerSpy).toHaveBeenCalledWith(mockUser);
   });
 
-  it('should navigate to login page after successful registration', () => {
-    const registerRequest: RegisterRequest =  {
-      lastName: 'test',
-      firstName: 'test',
-      email: 'test@Studio.com',
-      password: 'test!1234',
-    };
+  it('should disable the submit button if an input is wrong or missing', () => {
+    component.form.controls['firstName'].setValue('Admin');
+    component.form.controls['lastName'].setValue('Admin');
+    component.form.controls['email'].setValue(''); // Empty email
+    component.form.controls['password'].setValue('test!1234');
 
-    authService.register.mockReturnValue(of(void 0));
-
-    component.form.setValue(registerRequest);
-
-    component.submit();
-
-    expect(router.navigate).toHaveBeenCalledWith(['/login']);
+    expect(component.form.valid).toBe(false);
+    
   });
 });

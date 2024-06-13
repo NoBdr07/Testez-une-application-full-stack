@@ -9,28 +9,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { expect } from '@jest/globals';
 import { SessionService } from 'src/app/services/session.service';
-import { LoginComponent } from './login.component';
+import { RegisterComponent } from './register.component';
 import { SessionInformation } from 'src/app/interfaces/sessionInformation.interface';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { of } from 'rxjs';
 
 describe('LoginComponent integration test suites', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+  let component: RegisterComponent;
+  let fixture: ComponentFixture<RegisterComponent>;
   let authService: AuthService;
-  let sessionService: SessionService;
   let mockRouter: Router;
 
-  const mockSessionInformation: SessionInformation = {
-    token: '',
-    type: '',
-    id: 1,
-    username: '',
-    firstName: '',
-    lastName: '',
-    admin: true,
-  };
+  const authServiceMock = {
+    register: jest.fn().mockReturnValue(of(void 0))
+  }
 
   mockRouter = {
     navigate: jest.fn(),
@@ -38,10 +31,9 @@ describe('LoginComponent integration test suites', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LoginComponent],
+      declarations: [RegisterComponent],
       providers: [
-        SessionService,
-        AuthService,
+        { provide: AuthService, useValue: authServiceMock },
         { provide: Router, useValue: mockRouter },
       ],
       imports: [
@@ -56,29 +48,31 @@ describe('LoginComponent integration test suites', () => {
       ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(LoginComponent);
+    fixture = TestBed.createComponent(RegisterComponent);
     component = fixture.componentInstance;
     authService = TestBed.inject(AuthService);
-    sessionService = TestBed.inject(SessionService);
     mockRouter = TestBed.inject(Router);
     fixture.detectChanges();
   });
 
-  it('should login and redirect to sessions page', () => {
-    const authServiceSpy = jest.spyOn(authService, 'login').mockReturnValue(of(mockSessionInformation));
-  
-    const sessionServiceSpy = jest.spyOn(sessionService, 'logIn');
+  it('should register and redirect to login page', async () => {
+
+    const authServiceSpy = jest.spyOn(authService, 'register');
     
     const routerSpy = jest.spyOn(mockRouter, 'navigate');
   
-    component.form.setValue({ email: 'test@mail.com', password: '1234' });
+    component.form.setValue({ 
+        firstName: 'test',
+        lastName: 'test',
+        email: 'test@mail.com', 
+        password: '1234' });
+
     component.submit();
 
+    await fixture.whenStable();
+
     expect(authServiceSpy).toHaveBeenCalledWith(component.form.value);
-    expect(sessionServiceSpy).toHaveBeenCalled;
-    expect(sessionService.isLogged).toBeTruthy;
-    expect(sessionService.sessionInformation).toBe(mockSessionInformation);
-    expect(routerSpy).toHaveBeenCalledWith(['/sessions']);
+    expect(routerSpy).toHaveBeenCalledWith(['/login']);
   });
 
 });
