@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/session")
 @Log4j2
-public class SessionController {
+public class    SessionController {
     private final SessionMapper sessionMapper;
     private final SessionService sessionService;
 
