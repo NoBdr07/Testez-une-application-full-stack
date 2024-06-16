@@ -39,12 +39,8 @@ public class SessionControllerIntTest {
     @Autowired
     private SessionMapper sessionMapper;
 
-    /**
-     * Test the findById request
-     * A session with id 1 must exist in db.
-     *
-     * @throws Exception
-     */
+    // Test the findById request
+    // A session with id 1 must exist in db.
     @Test
     @WithMockUser(roles = "ADMIN")
     public void findByIdTest() throws Exception {
@@ -53,12 +49,8 @@ public class SessionControllerIntTest {
                 .andExpect(jsonPath("$.id", is(1)));
     }
 
-    /**
-     * Test findAll request.
-     * A session with id 1 must exist in db.
-     *
-     * @throws Exception
-     */
+     // Test findAll request.
+     // A session with id 1 must exist in db.
     @Test
     @WithMockUser(roles = "ADMIN")
     public void findAllTest() throws Exception {
@@ -68,13 +60,7 @@ public class SessionControllerIntTest {
 
     }
 
-    /**
-     * Create a session and then delete it.
-     * It tests both method.
-     * And can be re-run as we delete it.
-     *
-     * @throws Exception
-     */
+     // Create a session and then delete it. It tests both method. And can be re-run as we delete it.
     @Test
     @WithMockUser(roles = "ADMIN")
     public void createAndDeleteTest() throws Exception {
@@ -114,12 +100,8 @@ public class SessionControllerIntTest {
                 .andExpect(status().isNotFound());
     }
 
-    /**
-     * Test updating a session.
-     * A session with id 5 must exist in db
-     *
-     * @throws Exception
-     */
+    // Test updating a session.
+    // A session with id 5 must exist in db
     @Test
     @WithMockUser(roles = "ADMIN")
     public void updateTest() throws Exception {
@@ -143,17 +125,10 @@ public class SessionControllerIntTest {
                 .andExpect(jsonPath("$.teacher_id", is(1)));
     }
 
-    /**
-     * Test participate and noLongerParticipate requests.
-     * Can be re-run as we do a noLongerParticipate
-     * for the same user and session.
-     *
-     * A session with id 1 and
-     * a user with id 4
-     * must exist in db.
-     *
-     * @throws Exception
-     */
+
+     // Test participate and noLongerParticipate requests.
+     // Can be re-run as we do a noLongerParticipate for the same user and session.
+     // A session with id 1 and a user with id 4 must exist in db.
     @Test
     @WithMockUser(roles = "ADMIN")
     public void participateTest() throws Exception {
@@ -168,10 +143,5 @@ public class SessionControllerIntTest {
         // Cleanup: Remove user 4 from session 1
         mockMvc.perform(delete("/api/session/1/participate/4"))
                 .andExpect(status().isOk());
-
     }
-
-
-
-
 }

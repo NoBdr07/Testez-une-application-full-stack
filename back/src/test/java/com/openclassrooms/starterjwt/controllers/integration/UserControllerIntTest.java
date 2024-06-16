@@ -32,12 +32,9 @@ public class UserControllerIntTest {
     @Autowired
     private UserService userService;
 
-    /**
-     * Test the findById of UserController
-     * A user with id 1 must exist in db.
-     *
-     * @throws Exception
-     */
+
+     // Test the findById of UserController
+     // A user with id 1 must exist in db.
     @Test
     @WithMockUser(roles = "ADMIN")
     public void findByIdTest() throws Exception {
@@ -45,22 +42,4 @@ public class UserControllerIntTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is(1)));
     }
-
-    /**
-     * Test the save method of UserController
-     * A user with id 1 must exist in db.
-     *
-     * @throws Exception
-     */
-   // @Test
-   // @WithMockUser(roles = "ADMIN")
-   // public void saveTest() throws Exception {
-    //    mockMvc.perform(delete("/api/user/6"))
-    //            .andExpect(status().isOk());
-//
-  //      mockMvc.perform(get("/api/user/6"))
-    //            .andExpect(status().isNotFound());
-
-
-    //}
 }

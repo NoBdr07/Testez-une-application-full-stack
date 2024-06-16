@@ -1,17 +1,12 @@
 package com.openclassrooms.starterjwt.security.services;
 
-import com.openclassrooms.starterjwt.models.User;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class UserDetailsImplTest {
-
-    private UserDetailsImpl userDetails;
-
     @Test
     public void equalsTest() {
         // GIVEN

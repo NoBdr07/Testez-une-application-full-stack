@@ -30,12 +30,9 @@ public class TeacherControllerIntTest {
     @Autowired
     private TeacherService teacherService;
 
-    /**
-     * Test the findById of TeacherController
-     * A teacher with id 1 must exist in db.
-     *
-     * @throws Exception
-     */
+
+    // Test the findById of TeacherController
+    // A teacher with id 1 must exist in db.
     @Test
     @WithMockUser(roles = "ADMIN")
     public void findByIdTest() throws Exception {
@@ -44,12 +41,8 @@ public class TeacherControllerIntTest {
                 .andExpect(jsonPath("$.id", is(1)));
     }
 
-    /**
-     * Test the findAll of TeacherController
-     * A teacher with id 1 must exist in db.
-     *
-     * @throws Exception
-     */
+     // Test the findAll of TeacherController
+     // A teacher with id 1 must exist in db.
     @Test
     @WithMockUser(roles = "ADMIN")
     public void findAllTest() throws Exception {

@@ -30,12 +30,9 @@ public class AuthControllerIntTest {
     @Autowired
     private UserRepository userRepository;
 
-    /**
-     * Test the register request.
-     * New user is deleted after the test.
-     *
-     * @throws Exception
-     */
+
+     // Test the register request.
+     // New user is deleted after the test.
     @Test
     public void testRegister() throws Exception {
         // Create a new user
@@ -54,14 +51,9 @@ public class AuthControllerIntTest {
                 .andExpect(status().isOk());
     }
 
-    /**
-     * Test the login request
-     * The user with email yoga@studio.com
-     * and password test!1234
-     * must exist in db.
-     *
-     * @throws Exception
-     */
+
+     // Test the login request
+     // The user with email yoga@studio.com and password test!1234 must exist in db.
     @Test
     public void testLogin() throws Exception {
         LoginRequest loginRequest = new LoginRequest();
