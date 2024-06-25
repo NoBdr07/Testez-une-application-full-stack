@@ -131,7 +131,7 @@ yourFolder\Testez-une-application-full-stack\front\coverage\lcov-report\index.ht
 ### Back-end Tests
 #### Unit Tests
 
-To run the back-end tests with Mockito and generate a coverage report:
+To run the back-end tests and generate a coverage report:
 ```
 mvn clean test
 ```
