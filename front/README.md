@@ -1,72 +1,62 @@
-# Yoga
+# YogaApp - Full Stack Application - Front
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+This project is a full-stack application consisting of a back-end and a front-end. The back-end is built with Spring Boot, while the front-end uses Angular. Below are the steps to set up and run the application, along with instructions for running tests and generating coverage reports.
 
-## Start the project
+## Prerequisites
 
-Git clone:
+Ensure you have the following installed on your machine:
+- NodeJS 16
+- Angular CLI 14
 
-> git clone https://github.com/OpenClassrooms-Student-Center/P5-Full-Stack-testing
+## Application Installation
 
-Go inside folder:
+1. Clone the repository from https://github.com/NoBdr07/Testez-une-application-full-stack and navigate to the front directory.
+2. Install dependencies for the front-end:
 
-> cd yoga
+   ```
+   cd front
+   npm install
+   ```
 
-Install dependencies:
+## Running the Application
 
-> npm install
+1. Chose to use the back-end or replace it with the tool of your choice.
 
-Launch Front-end:
+4. Start the front-end application:
 
-> npm run start;
+```
+cd front
+ng serve
+```
 
+## Running Tests
 
-## Ressources
+### Front-end Tests
 
-### Mockoon env 
+#### Unit and Integration Tests
 
-### Postman collection
+Run the following command to execute tests and generate a coverage report:
 
-For Postman import the collection
+```
+npx jest --coverage
+```
 
-> ressources/postman/yoga.postman_collection.json 
+The coverage report can be found at: yourFolder/Testez-une-application-full-stack\front\coverage\jest\lcov-report\index.html
 
-by following the documentation: 
+#### End-to-end Tests
 
-https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman
+To run the E2E tests with Cypress, execute:
+```
+npx cypress open
+```
+Then you'll have an interface where you can choose which test you want to run.
 
+To generate a coverage report for E2E tests:
+```
+npm run e2e
+npm run e2e:coverage
+```
+Be careful to run the All.cy test file or you'll only have a coverage for the last file you run and not the whole app.
 
-### MySQL
-
-SQL script for creating the schema is available `ressources/sql/script.sql`
-
-By default the admin account is:
-- login: yoga@studio.com
-- password: test!1234
-
-
-### Test
-
-#### E2E
-
-Launching e2e test:
-
-> npm run e2e
-
-Generate coverage report (you should launch e2e test before):
-
-> npm run e2e:coverage
-
-Report is available here:
-
-> front/coverage/lcov-report/index.html
-
-#### Unitary test
-
-Launching test:
-
-> npm run test
-
-for following change:
-
-> npm run test:watch
+The E2E coverage report can be found at:
+yourFolder\Testez-une-application-full-stack\front\coverage\lcov-report\index.html
