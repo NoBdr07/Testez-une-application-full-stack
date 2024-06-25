@@ -59,7 +59,7 @@ describe('FormComponent', () => {
 
   it('should not display submit if one input in missing or wrong', () => {
     const compiled = fixture.nativeElement;
-    //rempli les champs du formulaire
+    
     component.sessionForm?.controls['name'].setValue('test');
     component.sessionForm?.controls['teacher_id'].setValue([]);
     component.sessionForm?.controls['date'].setValue('2021-12-12');

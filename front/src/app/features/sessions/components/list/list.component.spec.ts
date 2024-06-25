@@ -36,7 +36,6 @@ describe('ListComponent', () => {
   });
 
   it('should display create and edit button if user is admin', () => {
-    const compiled = fixture.nativeElement;
 
     const createButton = fixture.debugElement.queryAll(By.css('button[routerLink="create"]'));
     expect(createButton).toBeTruthy();
@@ -59,7 +58,5 @@ describe('ListComponent', () => {
 
     const editButton = fixture.debugElement.queryAll(By.css('button[routerLink="update"]'));
     expect(editButton.length).toBe(0);
-  });
-
-  
+  });  
 });

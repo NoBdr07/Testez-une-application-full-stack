@@ -109,6 +109,4 @@ describe('SessionsService', () => {
     expect(req.request.method).toBe('DELETE');
     req.flush(null);
   });
-
-
 });

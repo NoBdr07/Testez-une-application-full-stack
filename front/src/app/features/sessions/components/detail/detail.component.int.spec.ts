@@ -70,7 +70,6 @@ describe('DetailComponent', () => {
   });
 
   it('should display delete button but not participate button if user is admin', () => {
-    fixture.detectChanges();
 
     const deleteButton = fixture.nativeElement.querySelector('#deleteBtn');
     expect(deleteButton).toBeTruthy();
@@ -139,7 +138,4 @@ describe('DetailComponent', () => {
 
     expect(backSpy).toHaveBeenCalled();
   });
-
-  
-
 });
