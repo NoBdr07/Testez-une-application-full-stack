@@ -51,12 +51,13 @@ npx cypress open
 ```
 Then you'll have an interface where you can choose which test you want to run.
 
-To generate a coverage report for E2E tests:
+To generate a coverage report for E2E tests, run the app with ng serve, then run this command :
 ```
 npm run e2e
+```
+A window will open with the cypress interface. Launch the all.cy file and wait until all the tests pass. Then closed the two cypress windows. Then run this command :
+```
 npm run e2e:coverage
 ```
-Be careful to run the All.cy test file or you'll only have a coverage for the last file you run and not the whole app.
-
 The E2E coverage report can be found at:
 yourFolder\Testez-une-application-full-stack\front\coverage\lcov-report\index.html
