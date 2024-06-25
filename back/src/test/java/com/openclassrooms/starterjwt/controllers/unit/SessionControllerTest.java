@@ -166,7 +166,5 @@ public class SessionControllerTest {
 
         // THEN
         assertEquals(HttpStatus.OK, response.getStatusCode());
-
-
     }
 }

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 @SpringBootTest
 public class UserMapperTest {
@@ -127,7 +128,7 @@ public class UserMapperTest {
         User user = userMapper.toEntity(userDto);
 
         // THEN
-        assertEquals(user, null);
+        assertNull(user);
     }
 
     @Test
@@ -140,7 +141,7 @@ public class UserMapperTest {
         UserDto userDto = userMapper.toDto(user);
 
         // THEN
-        assertEquals(userDto, null);
+        assertNull(userDto);
     }
 
     @Test
@@ -153,7 +154,7 @@ public class UserMapperTest {
         List<User> users = userMapper.toEntity(userDtos);
 
         // THEN
-        assertEquals(users, null);
+        assertNull(users);
     }
 
     @Test
@@ -166,6 +167,6 @@ public class UserMapperTest {
         List<UserDto> userDtos = userMapper.toDto(users);
 
         // THEN
-        assertEquals(userDtos, null);
+        assertNull(userDtos);
     }
 }

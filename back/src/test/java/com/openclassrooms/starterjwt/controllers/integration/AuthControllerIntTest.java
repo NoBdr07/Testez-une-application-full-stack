@@ -27,10 +27,6 @@ public class AuthControllerIntTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @Autowired
-    private UserRepository userRepository;
-
-
      // Test the register request.
      // New user is deleted after the test.
     @Test
@@ -50,7 +46,6 @@ public class AuthControllerIntTest {
                 .content(jsonRequest))
                 .andExpect(status().isOk());
     }
-
 
      // Test the login request
      // The user with email yoga@studio.com and password test!1234 must exist in db.

@@ -1,15 +1,9 @@
 package com.openclassrooms.starterjwt.controllers.unit;
 
-import com.openclassrooms.starterjwt.controllers.SessionController;
 import com.openclassrooms.starterjwt.controllers.UserController;
-import com.openclassrooms.starterjwt.dto.SessionDto;
 import com.openclassrooms.starterjwt.dto.UserDto;
-import com.openclassrooms.starterjwt.mapper.SessionMapper;
 import com.openclassrooms.starterjwt.mapper.UserMapper;
-import com.openclassrooms.starterjwt.models.Session;
-import com.openclassrooms.starterjwt.models.Teacher;
 import com.openclassrooms.starterjwt.models.User;
-import com.openclassrooms.starterjwt.services.SessionService;
 import com.openclassrooms.starterjwt.services.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -26,7 +20,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -76,7 +69,6 @@ public class UserControllerTest {
         assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
     }
 
-
     @Test
     public void findByIdBadRequestTest() {
         // WHEN
@@ -113,5 +105,4 @@ public class UserControllerTest {
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         verify(userService, times(1)).delete(id);
     }
-
 }

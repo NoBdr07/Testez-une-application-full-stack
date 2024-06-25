@@ -79,6 +79,7 @@ public class AuthTokenFilterTest {
         verify(userDetailsService, never()).loadUserByUsername(anyString());
     }
 
+    // Vérify that the filter does not call the JWTUtils and UserDetailsService when the token is not provided
     @Test
     public void doFilterInternalUnauthorizedTest() throws ServletException, IOException {
         // WHEN
@@ -88,6 +89,5 @@ public class AuthTokenFilterTest {
         verify(jwtUtils, never()).validateJwtToken(anyString());
         verify(jwtUtils, never()).getUserNameFromJwtToken(anyString());
         verify(userDetailsService, never()).loadUserByUsername(anyString());
-
     }
 }

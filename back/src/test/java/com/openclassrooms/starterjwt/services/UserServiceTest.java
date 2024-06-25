@@ -23,7 +23,7 @@ public class UserServiceTest {
     void findByIdTest() {
         // GIVEN
         User user = new User();
-        user.setId(1L); // Added "L" to make it a long instead of int
+        user.setId(1L);
         when(userRepository.findById(user.getId())).thenReturn(Optional.of(user));
 
         //WHEN

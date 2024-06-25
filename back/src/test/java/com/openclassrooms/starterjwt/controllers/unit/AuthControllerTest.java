@@ -55,7 +55,6 @@ public class AuthControllerTest {
     @Test
     public void authenticateUserTest() {
         // GIVEN
-        // Mock user info
         Long id = 2L;
         String email = "test@test.com";
         String password = "test";
@@ -155,6 +154,4 @@ public class AuthControllerTest {
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
         assertEquals("Error: Email is already taken!", responseBody.getMessage());
     }
-
-
 }

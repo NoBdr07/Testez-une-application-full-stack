@@ -1,8 +1,5 @@
 package com.openclassrooms.starterjwt.controllers.integration;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.openclassrooms.starterjwt.mapper.TeacherMapper;
-import com.openclassrooms.starterjwt.services.TeacherService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -21,17 +18,6 @@ public class TeacherControllerIntTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Autowired
-    private ObjectMapper objectMapper;
-
-    @Autowired
-    private TeacherMapper teacherMapper;
-
-    @Autowired
-    private TeacherService teacherService;
-
-
-    // Test the findById of TeacherController
     // A teacher with id 1 must exist in db.
     @Test
     @WithMockUser(roles = "ADMIN")
@@ -41,7 +27,6 @@ public class TeacherControllerIntTest {
                 .andExpect(jsonPath("$.id", is(1)));
     }
 
-     // Test the findAll of TeacherController
      // A teacher with id 1 must exist in db.
     @Test
     @WithMockUser(roles = "ADMIN")
@@ -49,7 +34,5 @@ public class TeacherControllerIntTest {
         mockMvc.perform(get("/api/teacher"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id", is(1)));
-
-
     }
 }

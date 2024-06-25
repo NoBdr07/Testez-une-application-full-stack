@@ -15,11 +15,9 @@ public class UserDetailsImplTest {
         UserDetailsImpl differentUserDetailsImpl = UserDetailsImpl.builder().id(2L).build();
         UserDetailsImpl nullUserDetailsImpl = null ;
 
-
         // WHEN & THEN
         assertTrue(userDetailsImpl.equals(sameUserDetailsImpl));
         assertFalse(userDetailsImpl.equals(differentUserDetailsImpl));
         assertFalse(userDetailsImpl.equals(nullUserDetailsImpl));
     }
-
 }
