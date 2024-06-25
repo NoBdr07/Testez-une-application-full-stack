@@ -48,5 +48,4 @@ describe('AppComponent', () => {
     expect(sessionServiceSpy).toHaveBeenCalled();
 
   })
-
 });

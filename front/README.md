@@ -51,7 +51,7 @@ npx cypress open
 ```
 Then you'll have an interface where you can choose which test you want to run.
 
-To generate a coverage report for E2E tests, run the app with ng serve, then run this command :
+To generate a coverage report for E2E tests, run this command :
 ```
 npm run e2e
 ```
