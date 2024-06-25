@@ -11,8 +11,7 @@ Ensure you have the following installed on your machine:
 - Angular CLI 14
 
 ## Database Setup
-
-1. Open MySQL and create the database schema as shown below:
+Open MySQL and create the database schema as shown below:
 
 ```sql
 
