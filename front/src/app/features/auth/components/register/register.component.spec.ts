@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
-import { ComponentFixture, TestBed, tick } from '@angular/core/testing';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,7 +13,6 @@ import { RegisterComponent } from './register.component';
 import { AuthService } from '../../services/auth.service';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
-import { RegisterRequest } from '../../interfaces/registerRequest.interface';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;

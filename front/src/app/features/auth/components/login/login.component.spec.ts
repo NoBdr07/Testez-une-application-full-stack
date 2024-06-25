@@ -77,7 +77,4 @@ describe('LoginComponent', () => {
       expect(component.form.valid).toBe(false);
     }
   });
-
-
-
 });
